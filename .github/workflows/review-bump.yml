@@ -1,0 +1,29 @@
+name: Constitution review touch
+
+# Monthly: refresh the "Last reviewed" line so this frozen reference repo does
+# not decay into staleness for live-clock audit runs. Deterministic audit
+# expectations pin a tag instead, so this never moves those.
+on:
+  schedule:
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - name: Refresh the Last reviewed date
+        run: |
+          sed -i -E "s/Last reviewed [0-9]{4}-[0-9]{2}-[0-9]{2}/Last reviewed $(date -u +%F)/" AGENTS.md
+          if git diff --quiet; then
+            echo "Already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore: monthly constitution review touch"
+          git push

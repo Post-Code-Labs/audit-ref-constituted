@@ -1,0 +1,3 @@
+# Gitleaks config — default ruleset; CI scans the full history on every push/PR.
+[extend]
+useDefault = true

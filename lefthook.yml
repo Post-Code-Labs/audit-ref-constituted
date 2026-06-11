@@ -1,0 +1,14 @@
+# Local gates for the cheap failures; CI runs the exhaustive `check`.
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{ts,mjs,md,json,yml,yaml}'
+      run: pnpm exec prettier --check {staged_files}
+    lint:
+      glob: '*.{ts,mjs}'
+      run: pnpm exec eslint {staged_files}
+pre-push:
+  commands:
+    typecheck:
+      run: pnpm run typecheck
