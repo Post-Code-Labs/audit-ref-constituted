@@ -15,11 +15,11 @@
     "prepare": "lefthook install"
   },
   "devDependencies": {
-    "eslint": "^10.4.1",
-    "lefthook": "^2.1.9",
-    "prettier": "^3.0.0",
+    "eslint": "^10.7.0",
+    "lefthook": "^2.1.10",
+    "prettier": "^3.9.5",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.0.0",
-    "vitest": "^4.1.8"
+    "typescript-eslint": "^8.63.0",
+    "vitest": "^4.1.10"
   }
 }
