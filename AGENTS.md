@@ -1,6 +1,6 @@
 # Agent instructions
 
-> Owner: @builtbydoug. Last reviewed 2026-08-01.
+> Owner: @builtbydoug. Last reviewed 2026-09-01.
 
 This file is the source of truth for how agents and contributors work in this
 repository. It is edited via PR, reviewed by the owner, and checked for
